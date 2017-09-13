@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pstat-lite 1.0\n"
+"POT-Creation-Date: 2017-09-13 02:26+0400\n"
+"PO-Revision-Date: 2017-09-13 03:06+0400\n"
+"Last-Translator: \n"
+"Language-Team: Wladimir Druzhaev (Otshelnik-Fm)\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: prime-statistics-lite\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.php:32
+msgid "Forum Stats"
+msgstr "Estadísticas del foro"
+
+#: index.php:33
+msgid "Groups of forums"
+msgstr "Grupos de foros"
+
+#: index.php:34
+msgid "Forums"
+msgstr "De los foros"
+
+#: index.php:35
+msgid "Topics"
+msgstr "Temas del foro"
+
+#: index.php:36
+msgid "Posts"
+msgstr "Mensajes"
+
+#: index.php:37
+msgid "Participants"
+msgstr "De los participantes"
+
+#: index.php:41
+msgid "The moderating team"
+msgstr "Administración del Foro"
+
+#: index.php:139
+msgid "Administrators"
+msgstr "Administradores"
+
+#: index.php:143
+msgid "Moderators"
+msgstr "Moderadores"
