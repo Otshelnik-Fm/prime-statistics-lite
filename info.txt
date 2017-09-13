@@ -1,5 +1,5 @@
 Name: Prime Statistics Lite;
-Version: 1.0;
+Version: 1.1;
 Support Core: 16.6.14;
 Parent Addon: prime-forum;
 Description: Выводит простую и минимальную статистику PrimeForum в подвале форума;
