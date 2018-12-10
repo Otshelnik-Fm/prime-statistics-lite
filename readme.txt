@@ -14,7 +14,21 @@
 
 
 
+== Настройки ==
+Есть одна настройка в админке: WP-Recall -> Настройки -> Настройки Prime Statistics Lite
+Опция: "Показывать администрацию форума" 
+Перейдя на форум, в его подвале будет отображен список администрации: админы и модераторы форума. По умолчанию включено.
+
+
+
+
 == Changelog ==
+= 2018-12-10 =
+v1.2
+* Поддержка WP-Recall 16.17
+* Появилась настройка: Показывать администрацию форума.
+
+
 = 2017-09-13 =
 v1.1
 * Правки стилей
@@ -34,4 +48,4 @@ v1.0
 * При возникновении проблемы, создайте соотвествующую тему на <a href="https://codeseller.ru/forum/product-15830/" target="_blank">форуме поддержки</a> товара
 * Если вам нужна доработка под ваши нужды - вы можете обратиться ко мне в <a href="https://codeseller.ru/author/otshelnik-fm/?tab=chat" target="_blank">ЛС</a> с техзаданием на платную доработку.
 
-Полный список моих работ опубликован <a href="http://across-ocean.otshelnik-fm.ru/" target="_blank">на моем демо-сайте</a> и в каталоге магазина <a href="https://codeseller.ru/author/otshelnik-fm/?tab=publics&subtab=type-products" target="_blank">CodeSeller.ru</a>
+Все мои работы опубликованы <a href="https://otshelnik-fm.ru/?p=2562&utm_source=free-addons&utm_medium=addon-description&utm_campaign=prime-statistics-lite&utm_content=codeseller.ru&utm_term=all-my-addons" target="_blank">на моём сайте</a> и в каталоге магазина <a href="https://codeseller.ru/author/otshelnik-fm/?tab=publics&subtab=type-products" target="_blank">CodeSeller.ru</a>

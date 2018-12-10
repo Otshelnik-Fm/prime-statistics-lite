@@ -1,13 +1,27 @@
 <?php
 
+/*
+
+╔═╗╔╦╗╔═╗╔╦╗
+║ ║ ║ ╠╣ ║║║ https://otshelnik-fm.ru
+╚═╝ ╩ ╚  ╩ ╩
+
+*/
+
+if (!defined('ABSPATH')) exit;
+
+
+require_once 'admin/settings.php';
+
+
 // подключаем стили только если мы на страницах форума
 function pstat_lite_style(){
     if( is_prime_forum() ){
-        rcl_enqueue_style('pstat_lite_style',rcl_addon_url('style.css', __FILE__));
+        rcl_enqueue_style('pstat_lite_style', rcl_addon_url('style.css', __FILE__));
     }
 }
 if(!is_admin()){
-    add_action('rcl_enqueue_scripts','pstat_lite_style',10);
+    add_action('rcl_enqueue_scripts', 'pstat_lite_style', 10);
 }
 
 // хук срабатывает - инициализация форума
@@ -18,7 +32,7 @@ if(!is_admin()){
 function pstat_lite_textdomain(){
     load_textdomain( 'pstat-lite', rcl_addon_path(__FILE__) . '/languages/pstat-lite-'. get_locale() . '.mo' );
 }
-add_action('plugins_loaded', 'pstat_lite_textdomain',10);
+add_action('plugins_loaded', 'pstat_lite_textdomain', 10);
 
 
 
@@ -35,10 +49,12 @@ function pstat_lite_box(){
         $out .= '<div class="pstatl_item pstatl_members"><span class="pstatl_num">'.$result[0]['visits'].'</span><span>'.__('Participants','pstat-lite').'</span></div>';//Участников
     $out .= '</div>';
 
-    $out .= '<div class="pstatl_boss_box">';
-        $out .= '<div class="pstatl_title">'.__('The moderating team','pstat-lite').'</div>';//Администрация форума
-        $out .= pstat_lite_boss_names();
-    $out .= '</div>';
+    if( rcl_get_option('pspf_adm', 'yes') == 'yes' ){
+        $out .= '<div class="pstatl_boss_box">';
+            $out .= '<div class="pstatl_title">'.__('The moderating team','pstat-lite').'</div>';//Администрация форума
+            $out .= pstat_lite_boss_names();
+        $out .= '</div>';
+    }
 
     return $out;
 }
@@ -51,7 +67,7 @@ function pstat_lite_cache(){
     $string = 'pstat-cache';                 //уникальный ключ
     $file = $rcl_cache->get_file($string);   //получаем данные кеш-файла по указанному ключу
 
-    if(!$file->need_update){                 //если кеш не просрочен
+    if( !$file->need_update ){                 //если кеш не просрочен
         echo $rcl_cache->get_cache();        //выведем содержимое кеш-файла
     } else {
         $content = pstat_lite_box();
@@ -60,7 +76,7 @@ function pstat_lite_cache(){
         echo $content;                       //выведем контент
     }
 }
-add_action('pfm_footer','pstat_lite_cache'); //срабатывает в подвале форума
+add_action('pfm_footer', 'pstat_lite_cache'); //срабатывает в подвале форума
 
 
 // считаем всё одним запросом
@@ -74,7 +90,7 @@ function pstat_lite_counts(){
                         (SELECT COUNT(*) FROM ". RCL_PREF ."pforum_topics) AS topics,
                         (SELECT COUNT(*) FROM ". RCL_PREF ."pforum_posts) AS posts,
                         (SELECT COUNT(*) FROM ".$wpdb->users.") AS visits
-                    ",ARRAY_A);
+                    ", ARRAY_A);
 
     return $pstat_cnt;
 
@@ -102,7 +118,7 @@ function pstat_lite_forum_boss_data(){
                         WHERE m.meta_key = 'pfm_role'
                         AND m.meta_value IN ('administrator', 'moderator')
                         ORDER BY meta_value,m.user_id;
-                    ",ARRAY_A);
+                    ", ARRAY_A);
     return $boss;
 
 /*Array(
@@ -133,11 +149,11 @@ function pstat_lite_boss_names(){
     foreach($datas as $data){
         $url = get_author_posts_url($data['user_id'], $data['user_nicename']);
 
-        if($data['meta_value'] === 'administrator'){
+        if( $data['meta_value'] === 'administrator' ){
             if(!$admin_title) $admin_title = '<div class="pstatl_role">'.__('Administrators','pstat-lite').':</div>';//Администраторы
             $admin .= '<span><a href="'.$url.'">'.$data['display_name'].'</a></span>';
         }
-        else if($data['meta_value'] === 'moderator'){
+        else if( $data['meta_value'] === 'moderator' ){
             if(!$moder_title) $moder_title = '<div class="pstatl_role">'.__('Moderators','pstat-lite').':</div>';//Модераторы
             $moder .= '<span><a href="'.$url.'">'.$data['display_name'].'</a></span>';
         }
@@ -148,23 +164,65 @@ function pstat_lite_boss_names(){
 
 
 // цвет WP-Recall
-function pstat_lite_color($styles,$rgb){
-    if(!pfm_get_option('forum-colors')) return $styles; // Цвета форума - По умолчанию
+function pstat_lite_color($styles, $rgb){
+    if( !pfm_get_option('forum-colors') ) return $styles; // Цвета форума - По умолчанию
 
     list($r, $g, $b) = $rgb;
     $color = $r.','.$g.','.$b;
 
     $styles .= '
-    #prime-forum .pstatl_box,
-    #prime-forum .pstatl_boss_box {
-        background-color: rgba('.$color.',0.02);
-    }
-    #prime-forum .pstatl_title {
-        background-color: rgba('.$color.',0.1);
-    }
+        #prime-forum .pstatl_box,
+        #prime-forum .pstatl_boss_box {
+            background-color: rgba('.$color.',0.02);
+        }
+        #prime-forum .pstatl_title {
+            background-color: rgba('.$color.',0.1);
+        }
     ';
 
     return $styles;
 }
-add_filter('rcl_inline_styles','pstat_lite_color',10,2);
+add_filter('rcl_inline_styles', 'pstat_lite_color', 10, 2);
 
+
+function pstat_lite_add_settings(){
+    $chr_page = get_current_screen();
+
+    if($chr_page->base != 'wp-recall_page_rcl-options') return;
+    if( isset($_COOKIE['otfmi_1']) && isset($_COOKIE['otfmi_2']) && isset($_COOKIE['otfmi_3']) )  return;
+
+    require_once 'admin/for-settings.php';
+}
+add_action('admin_footer', 'pstat_lite_add_settings');
+
+
+function pstat_lite_admin_styles(){
+    $chr_page = get_current_screen();
+    if( $chr_page->base != 'wp-recall_page_rcl-options' ) return;
+
+$style = '
+    #pstl_info {
+        background-color: #dff5d4;
+        border: 1px solid #c1eab7;
+        margin: 5px 0;
+        padding: 6px 12px 8px;
+        font-size: 14px;
+    }
+';
+
+    $style_min = pstat_lite_inline($style);
+
+    echo "\r\n<style>".$style_min."</style>\r\n";
+}
+add_action('admin_footer', 'pstat_lite_admin_styles');
+
+
+function pstat_lite_inline($src){
+    $src_cleared =  preg_replace('/ {2,}/','',str_replace(array("\r\n", "\r", "\n", "\t"), '', $src));
+
+    $src_non_space = str_replace(': ', ':', $src_cleared);
+
+    $src_sanity = str_replace(' {', '{', $src_non_space);
+
+    return $src_sanity;
+}

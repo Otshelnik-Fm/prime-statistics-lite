@@ -1,8 +1,8 @@
 Name: Prime Statistics Lite;
-Version: 1.1;
-Support Core: 16.6.14;
+Version: 1.2;
+Support Core: 16.17.0;
 Parent Addon: prime-forum;
 Description: Выводит простую и минимальную статистику PrimeForum в подвале форума;
 Author: Владимир Дружаев (Otshelnik-Fm);
-Author URI: http://across-ocean.otshelnik-fm.ru/;
+Author URI: https://otshelnik-fm.ru/?utm_source=free-addons&utm_medium=addon-manager&utm_campaign=prime-statistics-lite&utm_content=not-domain&utm_term=home-page;
 Add-on URI: https://codeseller.ru/products/prime-statistics-lite/;

@@ -6,7 +6,8 @@
 
 ## Demo:  
 
-Демонстрация работы: [здесь](http://across-ocean.otshelnik-fm.ru/forum/)  
+Демонстрация работы PRO-версии: [здесь](https://otshelnik-fm.ru/forum/?utm_source=free-addons&utm_medium=addon-description&utm_campaign=prime-statistics-lite&utm_content=github.com&utm_term=stats-forum) - в подвале форума.  
+А кликнув на "Вся статистика" справа - вы попадете на чарты и графики про версии дополнения. [прямая ссылка на графики](https://otshelnik-fm.ru/prime-forum-stats/?utm_source=free-addons&utm_medium=addon-description&utm_campaign=prime-statistics-lite&utm_content=github.com&utm_term=stats-forum-chart)  
 
 ------------------------------
 
@@ -45,7 +46,22 @@
 
 ------------------------------
 
+## Настройки:  
+
+Есть одна настройка в админке: WP-Recall -> Настройки -> Настройки Prime Statistics Lite  
+Опция: "Показывать администрацию форума"  
+Перейдя на форум, в его подвале будет отображен список администрации: админы и модераторы форума. По умолчанию включено.  
+
+------------------------------
+
+
 ## Changelog:  
+**2018-12-10**  
+v1.2  
+* Поддержка WP-Recall 16.17  
+* Появилась настройка: Показывать администрацию форума.  
+
+
 **2017-09-13**  
 v1.1  
 * Правки стилей  
@@ -64,7 +80,7 @@ v1.0
 * При возникновении проблемы, создайте соотвествующую тему на [форуме поддержки](https://codeseller.ru/forum/product-15830/) товара  
 * Если вам нужна доработка под ваши нужды - вы можете обратиться ко мне в [ЛС](https://codeseller.ru/author/otshelnik-fm/?tab=chat) с техзаданием на платную доработку.  
 
-Полный список моих работ опубликован [на моем демо-сайте](http://across-ocean.otshelnik-fm.ru/) и в каталоге магазина [CodeSeller.ru](https://codeseller.ru/author/otshelnik-fm/?tab=publics&subtab=type-products)
+Полный список моих работ опубликован на [моём сайте](https://otshelnik-fm.ru/all-my-addons-for-wp-recall/?utm_source=free-addons&utm_medium=addon-description&utm_campaign=prime-statistics-lite&utm_content=github.com&utm_term=all-my-addons) и в каталоге магазина [CodeSeller.ru](https://codeseller.ru/author/otshelnik-fm/?tab=publics&subtab=type-products)  
 
 ------------------------------
 
